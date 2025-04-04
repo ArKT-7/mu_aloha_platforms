@@ -4,14 +4,32 @@ name: SM8150 Xiaomi Pad5
 
 # Controls when the workflow will run
 on:
-#  # Triggers the workflow on push or pull request events but only for the "main" branch
+  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
+    branches: ["main"]
     paths:
-      - 'Platforms/SurfaceDuo1Pkg/Device/xiaomi-nabu/**'
+      - "Binaries"
+      - "Common/**"
+      - "Features/**"
+      - "MU_BASECORE"
+      - "Silicon/Arm/**"
+      - "scripts/**"
+      - "Platforms/AndromedaPkg/**"
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+  # Triggers the workflow on pull request
+  pull_request:
+    types: [opened, reopened]
+    paths:
+      - "Binaries"
+      - "Common/**"
+      - "Features/**"
+      - "MU_BASECORE"
+      - "Silicon/Arm/**"
+      - "scripts/**"
+      - "Platforms/AndromedaPkg/**"
 # Indicate that we are running in CI
 env:
   WM_CI_BUILD: true
