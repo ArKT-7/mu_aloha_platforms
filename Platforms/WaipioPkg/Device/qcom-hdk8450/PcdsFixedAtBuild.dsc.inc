@@ -10,7 +10,7 @@ gAndromedaPkgTokenSpaceGuid.PcdDisplayCallerStallBeforeEnable|1000
 gAndromedaPkgTokenSpaceGuid.PcdSmbiosSystemBrand|"Qualcomm"
 gAndromedaPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"6"
 
-gAndromedaPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8 Gen1 @ 2.995 GHz"
+gAndromedaPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Snapdragon (TM) 8 Gen 1 @ 2.995 GHz"
 gAndromedaPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"SM8450"
 
 gAndromedaPkgTokenSpaceGuid.PcdABLProduct|"waipio"
