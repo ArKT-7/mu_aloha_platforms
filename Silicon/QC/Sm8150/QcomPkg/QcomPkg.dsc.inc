@@ -9,7 +9,7 @@
 #
 ##
 [BuildOptions.common]
-  *_*_*_CC_FLAGS = -march=armv8.2-a+crypto+rcpc 
+  *_*_*_CC_FLAGS = -march=armv8.2-a+crypto+rcpc
 
 [PcdsFixedAtBuild.common]
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000         # Starting address, 2GB Base
@@ -34,6 +34,9 @@
   # UART
   gAndromedaPkgTokenSpaceGuid.PcdUartSerialBase|0x00A90000
 
+  # Keep MDP Stream IDs attached by default
+  gAndromedaPkgTokenSpaceGuid.PcdSMMUSIDsToKeep|{0x00, 0x08,    0x01, 0x08,    0x20, 0x08,    0x21, 0x08,    0x00, 0x0C,    0x01, 0x0C,    0x20, 0x0C,    0x21, 0x0C}
+
 [LibraryClasses.common]
   # Move PlatformMemoryMapLib to Device/<device>/Library
   # And moved this Line to SurfaceDuo1.dsc
@@ -50,6 +53,8 @@
 
   AcpiPlatformUpdateLib|QcomPkg/Library/AcpiPlatformUpdateLib/AcpiPlatformUpdateLib.inf
   PlatformThemeLib|QcomPkg/Library/PlatformThemeLib/PlatformThemeLib.inf
+
+  QcomMmuDetachHelperLib|AndromedaPkg/Library/QcomMmuDetachHelperLib/QcomMmuDetachHelperLib.inf
 
 [Components.common]
  AndromedaPkg/Driver/RamPartitionDxe/RamPartitionDxe.inf

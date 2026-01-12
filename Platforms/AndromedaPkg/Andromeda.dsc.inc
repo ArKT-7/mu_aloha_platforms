@@ -32,8 +32,8 @@
 
 [PcdsFixedAtBuild.common]
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"DuoWoA authors"
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"2509.30"
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareRevision|0x01250930
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString|L"2412.74"
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareRevision|0x01241274
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemId|"QCOM  "
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemTableId|0x324B44454D4F4351
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultCreatorId|0x4D4F4351
@@ -111,8 +111,8 @@
   # 4042708A-0F2D-4823-AC60-0D77B3111889
   gEfiMdeModulePkgTokenSpaceGuid.PcdBootManagerMenuFile|{ 0x8A, 0x70, 0x42, 0x40, 0x2D, 0x0F, 0x23, 0x48, 0xAC, 0x60, 0x0D, 0x77, 0xB3, 0x11, 0x18, 0x89 }
 
-  gOemPkgTokenSpaceGuid.PcdUefiVersionNumber|0x1250930 # 1.24.12.74
-  gOemPkgTokenSpaceGuid.PcdUefiBuildDate|0x20250903 # 2024-12-23
+  gOemPkgTokenSpaceGuid.PcdUefiVersionNumber|0x1241274 # 1.24.12.74
+  gOemPkgTokenSpaceGuid.PcdUefiBuildDate|0x20241223 # 2024-12-23
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdMaxVariableSize|0x2000
 
@@ -351,9 +351,6 @@
 
   MemoryMapHelperLib|AndromedaPkg/Library/MemoryMapHelperSecLib/MemoryMapHelperSecLib.inf
   ConfigurationMapHelperLib|AndromedaPkg/Library/ConfigurationMapHelperSecLib/ConfigurationMapHelperSecLib.inf
-## Patch: Import a finder lib to get protocol address
-  SecProtocolFinderLib|AndromedaPkg/Library/QcSecProtocolsLocatorSecLib/QcSecProtocolsLocatorSecLib.inf
-##
   ShLib|AndromedaPkg/Library/ShLib/ShLib.inf
   UefiCfgLib|AndromedaPkg/Library/UefiCfgLib/UefiCfgLib.inf
 
@@ -398,6 +395,10 @@
   ArmMmuLib|ArmPkg/Library/ArmMmuLib/ArmMmuPeiLib.inf
   MemoryMapHelperLib|AndromedaPkg/Library/MemoryMapHelperSecLib/MemoryMapHelperSecLib.inf
   ConfigurationMapHelperLib|AndromedaPkg/Library/ConfigurationMapHelperSecLib/ConfigurationMapHelperSecLib.inf
+  SmemSecLib|AndromedaPkg/Library/SmemSecLib/SmemSecLib.inf
+## Patch: A finder lib to get protocol address
+  SecProtocolFinderLib|AndromedaPkg/Library/QcSecProtocolsLocatorSecLib/QcSecProtocolsLocatorSecLib.inf
+##
 
 [LibraryClasses.common.DXE_CORE]
   DxeCoreEntryPoint|MdePkg/Library/DxeCoreEntryPoint/DxeCoreEntryPoint.inf
@@ -574,7 +575,15 @@
   MdeModulePkg/Universal/WatchdogTimerDxe/WatchdogTimer.inf
 
   MsCorePkg/CheckHardwareConnected/CheckHardwareConnected.inf
-  MsCorePkg/MuVarPolicyFoundationDxe/MuVarPolicyFoundationDxe.inf
+  MsCorePkg/MuVarPolicyFoundationDxe/MuVarPolicyFoundationDxe.inf {
+    <PcdsFixedAtBuild.common>
+      gEfiMdePkgTokenSpaceGuid.PcdDebugClearMemoryValue|0x00
+      gEfiMdePkgTokenSpaceGuid.PcdDebugPropertyMask|0x00
+      gEfiMdePkgTokenSpaceGuid.PcdDebugPrintErrorLevel|0x00000000
+      gEfiMdePkgTokenSpaceGuid.PcdPerformanceLibraryPropertyMask|0
+      gEfiMdePkgTokenSpaceGuid.PcdPostCodePropertyMask|0
+      gEfiMdePkgTokenSpaceGuid.PcdReportStatusCodePropertyMask|0x00
+  }
 
   NetworkPkg/ArpDxe/ArpDxe.inf
   NetworkPkg/Dhcp4Dxe/Dhcp4Dxe.inf
