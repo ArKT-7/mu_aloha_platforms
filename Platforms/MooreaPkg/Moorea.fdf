@@ -59,7 +59,7 @@ FV = FVMAIN_COMPACT
 
 [FV.FvMain]
 FvNameGuid         = 631008B0-B2D1-410A-8B49-2C5C4D8ECC7E
-BlockSize          = 0x40
+BlockSize          = 0x1000
 NumBlocks          = 0        # This FV gets compressed so make it just big enough
 FvAlignment        = 8        # FV alignment and FV attributes setting.
 ERASE_POLARITY     = 1
@@ -90,8 +90,8 @@ READ_LOCK_STATUS   = TRUE
   # BDS
   INF AndromedaPkg/Driver/RamPartitionDxe/RamPartitionDxe.inf
   INF MdeModulePkg/Universal/SmbiosDxe/SmbiosDxe.inf
-  INF MdeModulePkg/Universal/SetupBrowserDxe/SetupBrowserDxe.inf
-  INF MdeModulePkg/Universal/DriverHealthManagerDxe/DriverHealthManagerDxe.inf
+#  INF MdeModulePkg/Universal/SetupBrowserDxe/SetupBrowserDxe.inf
+#  INF MdeModulePkg/Universal/DriverHealthManagerDxe/DriverHealthManagerDxe.inf
   INF MdeModulePkg/Universal/Console/TerminalDxe/TerminalDxe.inf
 
   # HID Support
@@ -120,12 +120,11 @@ READ_LOCK_STATUS   = TRUE
 
   !include AndromedaPkg/Frontpage.fdf.inc
 
-  FILE FREEFORM = PCD(gMsCorePkgTokenSpaceGuid.PcdRegulatoryGraphicFileGuid) {
-    SECTION RAW = MooreaPkg/Include/Resources/RegulatoryLogos.png
-  }
+#  FILE FREEFORM = PCD(gMsCorePkgTokenSpaceGuid.PcdRegulatoryGraphicFileGuid) {
+#    SECTION RAW = $(PACKAGE_NAME)/Include/Resources/RegulatoryLogos.png
+#  }
 
   INF AdvLoggerPkg/AdvancedFileLogger/AdvancedFileLogger.inf
-
   INF ArmPkg/Drivers/ArmGicDxe/ArmGicDxe.inf
   INF ArmPkg/Drivers/CpuDxe/CpuDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
@@ -137,7 +136,7 @@ READ_LOCK_STATUS   = TRUE
 
   INF MdeModulePkg/Bus/Pci/NvmExpressDxe/NvmExpressDxe.inf
   INF MdeModulePkg/Bus/Pci/PciBusDxe/PciBusDxe.inf
-  INF MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
+#  INF MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
   INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf
   INF MdeModulePkg/Universal/Acpi/BootGraphicsResourceTableDxe/BootGraphicsResourceTableDxe.inf

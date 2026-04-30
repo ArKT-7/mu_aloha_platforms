@@ -10,13 +10,19 @@
   CrTarget.c
   CrRpmhTarget.c
   CrClockTarget.c
-  CrClockDebugTargetWaipio.c
+  CrClockDebugTarget.c
   CrDebugUartTarget.c
+  CrGpioTarget.c
+  CrPdcTarget.c
 
 [Packages]
   MdePkg/MdePkg.dec
   QcomPkg/QcomPkg.dec
   CranePkg/CranePkg.dec
+  AndromedaPkg/AndromedaPkg.dec
 
 [LibraryClasses]
   BaseLib
+
+[Pcd]
+  gAndromedaPkgTokenSpaceGuid.PcdUartSerialBase
